@@ -1,0 +1,25 @@
+run:
+  mode: train
+  model_ckpt_dir: ./models/checkpoints
+  model_ckpt_name: default-runid
+  project: thesis
+  name: t5
+dataset:
+  name: abstracts-gold-t5
+  jsonl_dir: ./data/AbstrActs
+  feature_dir: ./data/VATEX_caption_features
+model:
+  num_videos: 2
+  input_size: 600
+  emb_size: 512
+  nhead: 8
+  dim_feedforward: 512
+  num_encoder_layers: 3
+  num_decoder_layers: 3
+  dropout: 0.5
+  input_method: soft-alignment
+train:
+  finetune: False
+  num_epoch: 500
+  batch_size: 64
+  adam_lr: 0.0001

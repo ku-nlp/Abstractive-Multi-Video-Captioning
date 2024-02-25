@@ -1,0 +1,25 @@
+run:
+  mode: train
+  model_ckpt_dir: ./models/checkpoints
+  model_ckpt_name: default-runid
+  project: lrec-coling2024
+  name: end2end-6videos
+dataset:
+  name: abstracts
+  jsonl_dir: ./data/AbstrActs
+  feature_dir: ./data/VATEX_CLIP4Clip
+model:
+  num_videos: 6
+  input_size: 3072
+  emb_size: 512
+  nhead: 8
+  dim_feedforward: 512
+  num_encoder_layers: 3
+  num_decoder_layers: 3
+  dropout: 0.5
+  input_method: soft-alignment
+train:
+  finetune: False
+  num_epoch: 500
+  batch_size: 128
+  adam_lr: 0.0001
